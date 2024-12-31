@@ -97,3 +97,35 @@ plt.show()
 - The median salaries increase with the seniority and specialization of the roles. Senior roles (Senior Data Scientist, Senior Data Engineer) not only have higher median salaries but also larger differences in typical salaries, reflecting greater variance in compensation as responsibilities increase.
 
 ## Highest Paid & Most Demanded Skills for Data Analysts
+Next, I narrowed my analysis and focused only on data analyst roles. I looked at the highest-paid skills and the most in-demand skills. I used two bar charts to showcase these.
+
+### Visualize Data
+```Python
+# Top 10 Most In-Demand Skills for Data Analysts
+sns.barplot(data=df_DA_skills, x='median', y='job_skills', hue='median' ,palette='light:b')
+
+sns.set_theme(style='ticks')
+sns.despine() # remove top and right spines
+
+plt.title('Top 10 Most In-demand Skills for Data Analysts')
+plt.ylabel('')
+plt.xlabel('Median Salary (USD)')
+plt.legend().set_visible(False)
+
+sns.set_theme(style='ticks')
+plt.tight_layout()
+
+plt.show()
+```
+
+### Results
+![Most In-demand Skills for Data Analysts in 2023](images\In-Demand_Skills.png)
+
+### Insights
+- The graph highlights that foundational skills like Excel, PowerPoint, and SQL are the most in-demand, even though they may not offer the highest salaries. This demonstrates the importance of these core skills for employability in data analysis roles.
+- There's a clear distinction between the skills that are highest paid and those that are most in-demand. Data analysts aiming to maximize their career potential should consider developing a diverse skill set that includes both high-paying specialized skills and widely demanded foundational skills.
+
+## 4.What are the most optimal skills to learn for Data Analysts?
+To identify the most optimal skills to learn ( the ones that are the highest paid and highest in demand) I calculated the percent of skill demand and the median salary of these skills. To easily identify which are the most optimal skills to learn.
+
+View my notebook with detailed steps here: [5_Optimal_Skills.ipynb](5_Optimal_Skills.ipynb)
