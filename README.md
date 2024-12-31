@@ -41,7 +41,7 @@ plt.show()
 - Data Engineers require more specialized technical skills (AWS, Azure, Spark) compared to Data Analysts and Data Scientists who are expected to be proficient in more general data management and analysis tools (Excel, Power BI).
 - Python is a versatile skill, highly demanded across all three roles, but most prominently for Data Scientists (62%) and Data Engineers (53%).
 
-## How are in-demand skills trending for Data Analysts?
+## 2.How are in-demand skills trending for Data Analysts?
 To find how skills are trending in 2023 for Data Analysts, I filtered data analyst positions and grouped the skills by the month of the job postings. This got me the top 5 skills of data analysts by month, showing how popular skills were throughout 2023.
 View my notebook with detailed steps here: [3_Skills_Trend.ipynb](3_Skills_Trend.ipynb)
 
@@ -62,3 +62,38 @@ plt.show()
 
 ### Results
 ![Trending Top Skills for Data Analysts in Germany in 2023.](images\skills_trend.png)
+
+### Insights
+- SQL remains the most consistently demanded skill throughout the year.
+- Python experienced a significant increase in demand starting around September.
+- Power BI, Excel and Tableau show relatively stable demand throughout the year with some fluctuations but remain essential skills for data analysts.
+
+## 3. How well do jobs and skills pay for Data Analysts?
+To identify the highest-paying roles and skills, I only got jobs in Germany and looked at their median salary. But first I looked at the salary distributions of common data jobs like Data Scientist, Data Engineer, and Data Analyst, to get an idea of which jobs are paid the most.
+
+View my notebook with detailed steps here: [4_Salary_Analysis.ipynb](4_Salary_Analysis.ipynb)
+
+### Visualize Data
+```Python
+# Plot Boxplot of Salary Distributions for Data Jobs in Germany
+sns.boxplot(data=df_top6, x='salary_year_avg', y='job_title_short', order=job_order)
+sns.set_theme(style='ticks')
+sns.despine()
+
+plt.title('Salary Distributions of Data Jobs in 2023')
+plt.xlabel('Yearly Salary')
+plt.ylabel('')
+plt.xlim(0, 500000) 
+ticks_x = plt.FuncFormatter(lambda y, pos: f'${int(y/1000)}K')
+plt.gca().xaxis.set_major_formatter(ticks_x)
+plt.show()
+```
+### Results
+![Salary Distributions of Data Jobs in 2023.](images\Salary Distributions of Data Jobs.png)
+
+### Insights
+- There's a significant variation in salary ranges across different job titles. Senior Data Scientist positions tend to have the highest salary potential, with up to $500K, indicating the high value placed on advanced data skills and experience in the industry.
+- Senior Data Engineer and Senior Data Scientist roles show a considerable number of outliers on the higher end of the salary spectrum, suggesting that exceptional skills or circumstances can lead to high pay in these roles. In contrast, Data Analyst roles demonstrate more consistency in salary, with fewer outliers.
+- The median salaries increase with the seniority and specialization of the roles. Senior roles (Senior Data Scientist, Senior Data Engineer) not only have higher median salaries but also larger differences in typical salaries, reflecting greater variance in compensation as responsibilities increase.
+
+## Highest Paid & Most Demanded Skills for Data Analysts
